@@ -1,0 +1,61 @@
+### 학생 등록 (POST)
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "이영희",
+  "studentNumber": "20240003"
+}
+
+### 예시 학생 자동 등록 (POST 2)
+POST http://localhost:8080/students/sample
+
+### 학생 정보 전체 수정 (PUT 1)
+PUT http://localhost:8080/students/1
+Content-Type: application/json
+
+{
+  "name": "홍길순",
+  "studentNumber": "20249999"
+}
+
+### 학생 이름만 수정 (PUT 2)
+PUT http://localhost:8080/students/1/name
+Content-Type: application/json
+
+{
+  "name": "홍민지"
+}
+
+### 특정 학생 삭제 (DELETE 1)
+DELETE http://localhost:8080/students/1
+
+### 전체 학생 삭제 (DELETE 2)
+DELETE http://localhost:8080/students
+
+### 400 Bad Request 테스트
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "",
+  "studentNumber": ""
+}
+
+### 404 Not Found 테스트
+GET http://localhost:8080/students/999
+
+### 500 Internal Server Error 테스트
+GET http://localhost:8080/students?error=500
+
+### 503 Service Unavailable 테스트
+GET http://localhost:8080/students?error=503
+
+### JSON 형식 오류 테스트
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "홍길동",
+  "studentNumber":
+}
